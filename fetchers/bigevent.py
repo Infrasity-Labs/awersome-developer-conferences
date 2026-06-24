@@ -1,7 +1,7 @@
 import os
 import re
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 try:
     import cloudscraper
     from bs4 import BeautifulSoup
@@ -9,7 +9,7 @@ except ImportError:
     print("Please install required packages: pip install cloudscraper beautifulsoup4")
     exit(1)
 
-def fetch_10times_events():
+def fetch_bigevent():
     url = "https://bigevent.io/events/topic/developer/"
     
     try:
@@ -33,7 +33,7 @@ def fetch_10times_events():
     ]
 
     fetched_events = []
-    current_time = datetime.utcnow()
+    current_time = datetime.now(timezone.utc)
     current_year = current_time.year
     
     # Parse JSON-LD script from BigEvent
@@ -50,8 +50,10 @@ def fetch_10times_events():
                         break
             
             for item in event_items:
-                event = item.get("item", {})
-                if event.get("@type") != "Event":
+                if not isinstance(item, dict):
+                    continue
+                event = item.get("item")
+                if not isinstance(event, dict) or event.get("@type") != "Event":
                     continue
                     
                 name = event.get("name") or 'N/A'
@@ -71,16 +73,17 @@ def fetch_10times_events():
                 loc_data = event.get("location", {})
                 if isinstance(loc_data, dict) and "address" in loc_data:
                     addr = loc_data["address"]
-                    locality = addr.get("addressLocality", "")
-                    country = addr.get("addressCountry", "")
-                    if country.lower() == "czech republic":
-                        country = "Czechia"
-                    if locality and country:
-                        location = f"{locality}, {country}"
-                    elif locality:
-                        location = locality
-                    elif country:
-                        location = country
+                    if isinstance(addr, dict):
+                        locality = addr.get("addressLocality", "")
+                        country = addr.get("addressCountry", "")
+                        if country.lower() == "czech republic":
+                            country = "Czechia"
+                        if locality and country:
+                            location = f"{locality}, {country}"
+                        elif locality:
+                            location = locality
+                        elif country:
+                            location = country
                 elif event.get("eventAttendanceMode") == "https://schema.org/OnlineEventAttendanceMode":
                     location = "Online"
                     
@@ -105,9 +108,6 @@ def fetch_10times_events():
 
     return fetched_events
 
-fetched_events = fetch_10times_events()
-
-# Map country/keyword to continent
 def get_continent(location):
     loc_lower = location.lower()
     if 'online' in loc_lower:
@@ -142,105 +142,9 @@ def get_continent(location):
     # default to online if we can't figure it out
     return 'Online'
 
-continents_events = {
-    'Africa': [],
-    'Asia': [],
-    'Australia': [],
-    'Europe': [],
-    'North America': [],
-    'Online': [],
-    'South America': []
-}
-
-# Read existing README to extract current events
-readme_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "README.md"))
-with open(readme_path, "r") as f:
-    readme_lines = f.read().splitlines()
-
-current_continent = None
-in_events_section = False
-pre_events_lines = []
-post_events_lines = []
-existing_events = []
-
-for line in readme_lines:
-    if line.startswith('## 📍 Event Schedule'):
-        in_events_section = True
-        pre_events_lines.append(line)
-        continue
-    
-    if in_events_section:
-        if line.startswith('---'):
-            in_events_section = False
-            post_events_lines.append(line)
-            continue
-        
-        if line.startswith('### '):
-            current_continent = line.replace('### ', '').strip()
-            continue
-            
-        if line.startswith('|') and not line.startswith('| Event Name') and not line.startswith('|---') and not line.startswith('|------------'):
-            parts = [p.strip() for p in line.split('|')]
-            if len(parts) >= 5:
-                name = parts[1]
-                date_str = parts[2]
-                location = parts[3]
-                register = parts[4]
-                existing_events.append({
-                    "name": name,
-                    "date": date_str,
-                    "location": location,
-                    "register": register,
-                    "continent": current_continent,
-                    "line": line
-                })
-        continue
-        
-    if not in_events_section:
-        if current_continent is None:
-            pre_events_lines.append(line)
-        else:
-            post_events_lines.append(line)
-
-# Combine existing and fetched events
-all_events = existing_events.copy()
-
 def normalize_name(name):
     return name.lower().replace(' ', '').replace('-', '').replace('+', '')
 
-existing_normalized = [normalize_name(e['name']) for e in existing_events]
-
-for fe in fetched_events:
-    cont = get_continent(fe['location'])
-    norm_name = normalize_name(fe['name'])
-    
-    if norm_name in existing_normalized:
-        for i, ev in enumerate(all_events):
-            if normalize_name(ev['name']) == norm_name:
-                all_events[i] = {
-                    "name": fe['name'],
-                    "date": fe['date'],
-                    "location": fe['location'],
-                    "register": fe['register'],
-                    "continent": cont,
-                    "line": fe['line']
-                }
-    else:
-        all_events.append({
-            "name": fe['name'],
-            "date": fe['date'],
-            "location": fe['location'],
-            "register": fe['register'],
-            "continent": cont,
-            "line": fe['line']
-        })
-
-# Distribute by continent
-for ev in all_events:
-    if ev['continent'] in continents_events:
-        continents_events[ev['continent']].append(ev)
-
-# Helper to parse date for sorting
 def parse_date(date_str):
     match = re.search(r'\d{4}-\d{2}-\d{2}', date_str)
     if match:
@@ -258,24 +162,130 @@ def parse_date(date_str):
     
     return "9999-99-99"
 
-# Sort events in each continent by date
-for cont in continents_events:
-    continents_events[cont].sort(key=lambda x: parse_date(x['date']))
 
-# Generate new README lines
-new_readme_lines = pre_events_lines.copy()
+def main():
+    fetched_events = fetch_bigevent()
 
-for cont in sorted(continents_events.keys()):
-    new_readme_lines.append(f"### {cont}")
-    new_readme_lines.append("| Event Name | Date | Location | Register |")
-    new_readme_lines.append("|------------|------|----------|----------|")
-    for ev in continents_events[cont]:
-        new_readme_lines.append(ev['line'])
 
-new_readme_lines.extend(post_events_lines)
+    # Map country/keyword to continent
+    continents_events = {
+        'Africa': [],
+        'Asia': [],
+        'Australia': [],
+        'Europe': [],
+        'North America': [],
+        'Online': [],
+        'South America': []
+    }
 
-# Write out the new README
-with open(readme_path, "w") as f:
-    f.write("\n".join(new_readme_lines) + "\n")
+    # Read existing README to extract current events
+    readme_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "README.md"))
+    with open(readme_path, "r", encoding="utf-8") as f:
+        readme_lines = f.read().splitlines()
 
-print("bigevent.io events fetched and README.md updated successfully!")
+    current_continent = None
+    in_events_section = False
+    pre_events_lines = []
+    post_events_lines = []
+    existing_events = []
+
+    for line in readme_lines:
+        if line.startswith('## 📍 Event Schedule'):
+            in_events_section = True
+            pre_events_lines.append(line)
+            continue
+        
+        if in_events_section:
+            if line.startswith('---'):
+                in_events_section = False
+                post_events_lines.append(line)
+                continue
+            
+            if line.startswith('### '):
+                current_continent = line.replace('### ', '').strip()
+                continue
+                
+            if line.startswith('|') and not line.startswith('| Event Name') and not line.startswith('|---') and not line.startswith('|------------'):
+                parts = [p.strip() for p in line.split('|')]
+                if len(parts) >= 5:
+                    name = parts[1]
+                    date_str = parts[2]
+                    location = parts[3]
+                    register = parts[4]
+                    existing_events.append({
+                        "name": name,
+                        "date": date_str,
+                        "location": location,
+                        "register": register,
+                        "continent": current_continent,
+                        "line": line
+                    })
+            continue
+            
+        if not in_events_section:
+            if current_continent is None:
+                pre_events_lines.append(line)
+            else:
+                post_events_lines.append(line)
+
+    # Combine existing and fetched events
+    all_events = existing_events.copy()
+
+    existing_normalized = [normalize_name(e['name']) for e in existing_events]
+
+    for fe in fetched_events:
+        cont = get_continent(fe['location'])
+        norm_name = normalize_name(fe['name'])
+        
+        if norm_name in existing_normalized:
+            for i, ev in enumerate(all_events):
+                if normalize_name(ev['name']) == norm_name:
+                    all_events[i] = {
+                        "name": fe['name'],
+                        "date": fe['date'],
+                        "location": fe['location'],
+                        "register": fe['register'],
+                        "continent": cont,
+                        "line": fe['line']
+                    }
+        else:
+            all_events.append({
+                "name": fe['name'],
+                "date": fe['date'],
+                "location": fe['location'],
+                "register": fe['register'],
+                "continent": cont,
+                "line": fe['line']
+            })
+
+    # Distribute by continent
+    for ev in all_events:
+        if ev['continent'] in continents_events:
+            continents_events[ev['continent']].append(ev)
+
+    # Helper to parse date for sorting
+    # Sort events in each continent by date
+    for cont in continents_events:
+        continents_events[cont].sort(key=lambda x: parse_date(x['date']))
+
+    # Generate new README lines
+    new_readme_lines = pre_events_lines.copy()
+
+    for cont in sorted(continents_events.keys()):
+        new_readme_lines.append(f"### {cont}")
+        new_readme_lines.append("| Event Name | Date | Location | Register |")
+        new_readme_lines.append("|------------|------|----------|----------|")
+        for ev in continents_events[cont]:
+            new_readme_lines.append(ev['line'])
+
+    new_readme_lines.extend(post_events_lines)
+
+    # Write out the new README
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(new_readme_lines) + "\n")
+
+    print("bigevent.io events fetched and README.md updated successfully!")
+
+
+if __name__ == "__main__":
+    main()
