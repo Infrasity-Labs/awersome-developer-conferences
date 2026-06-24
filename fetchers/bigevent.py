@@ -179,12 +179,11 @@ def is_past_event(date_str):
         return True
         
     if max_year == current_year:
-        iso_dates = re.findall(r'\d{4}-(\d{2})-\d{2}', date_str)
+        iso_dates = re.findall(r'\d{4}-\d{2}-\d{2}', date_str)
         if iso_dates:
-            max_month = max(int(m) for m in iso_dates)
-            if max_month < current_month:
-                return True
-            return False
+            max_date = max(iso_dates)
+            today_iso = now.strftime("%Y-%m-%d")
+            return max_date < today_iso
             
         months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
         found_months = []
@@ -192,9 +191,6 @@ def is_past_event(date_str):
         for i, m in enumerate(months):
             if m in lower_date:
                 found_months.append(i + 1)
-        if "june" in lower_date: found_months.append(6)
-        if "july" in lower_date: found_months.append(7)
-        if "sept" in lower_date: found_months.append(9)
         
         if found_months:
             max_month = max(found_months)
