@@ -10,13 +10,16 @@ def fetch_events_from_api():
 
     # Bypass SSL verification if there are local cert issues
     ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
 
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     try:
-        response = urllib.request.urlopen(req, context=ctx)
-        data = json.loads(response.read().decode('utf-8'))
+        with urllib.request.urlopen(req, context=ctx) as response:
+            data = json.loads(response.read().decode('utf-8'))
+    except Exception as e:
+        print(f"Failed to fetch data: {e}")
+        return []   try:
+        with urllib.request.urlopen(req, context=ctx) as response:
+            data = json.loads(response.read().decode('utf-8'))
     except Exception as e:
         print(f"Failed to fetch data: {e}")
         return []
@@ -40,8 +43,8 @@ def fetch_events_from_api():
         
         # Dates are in milliseconds, convert to seconds
         start_timestamp = dates[0] / 1000.0
-        start_date = datetime.fromtimestamp(start_timestamp)
-        end_timestamp = dates[-1] / 1000.0 if len(dates) > 0 else start_timestamp
+        start_date = datetime.utcfromtimestamp(start_timestamp)
+        end_timestamp = dates[-1] / 1000.0
         
         # Filter past events
         now_timestamp = datetime.now().timestamp()
@@ -50,14 +53,14 @@ def fetch_events_from_api():
             
         # Match keywords against name and tags
         event_text = event.get('name', '').lower()
-        tags = [tag.get('value', '').lower() for tag in event.get('tags', [])]
+        tags = [tag.get('value', '').lower() for tag in (event.get('tags') or []) if isinstance(tag, dict)]
         event_text += ' ' + ' '.join(tags)
         
         if not any(kw.lower() in event_text for kw in keywords):
             continue
 
-        name = event.get('name', 'N/A').replace('|', '\\|')
-        location = event.get('location', 'N/A').replace('|', '\\|')
+        name = (event.get('name') or 'N/A').replace('|', '\\|')
+        location = (event.get('location') or 'N/A').replace('|', '\\|')
         link = event.get('hyperlink', '')
         
         if link:
@@ -66,7 +69,7 @@ def fetch_events_from_api():
             register = "N/A"
         
         if len(dates) > 1:
-            end_date = datetime.fromtimestamp(end_timestamp)
+            end_date = datetime.utcfromtimestamp(end_timestamp)
             date_str = f"{start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}"
         else:
             date_str = start_date.strftime('%Y-%m-%d')
