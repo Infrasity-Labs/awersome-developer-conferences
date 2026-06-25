@@ -6,7 +6,7 @@
   [![Updated Daily](https://img.shields.io/github/last-commit/Infrasity-Labs/awersome-developer-conferences?label=last%20updated&color=brightgreen)](https://github.com/Infrasity-Labs/awersome-developer-conferences/commits/master)
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
   [![Maintained by Infrasity](https://img.shields.io/badge/maintained%20by-Infrasity-7B6BFF)](https://www.infrasity.com/)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/Infrasity-Labs/awersome-developer-conferences/blob/master/CONTRIBUTING.md)
 
 
   <img src="assets/Awesome.png" width="1000" alt="Awesome Developer Conferences Banner" />
@@ -163,7 +163,7 @@ At Infrasity, we run developer marketing for DevTools and B2B SaaS. We spend cou
 
 ## About
 
-Maintained by **[Infrasity](https://infrasity.com)** a developer marketing agency helping DevTool startups and B2B SaaS companies with technical content, DevRel strategy, and GTM.
+Maintained by **[Infrasity](https://infrasity.com)**- a developer marketing agency helping DevTool startups and B2B SaaS companies with technical content, DevRel strategy, and GTM.
 
 We maintain this list because we research these events for our clients. If you're a DevRel or developer marketing team looking for conference strategy, [let's talk](https://infrasity.com).
 
