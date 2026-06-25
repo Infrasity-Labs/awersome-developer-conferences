@@ -163,7 +163,7 @@ At Infrasity, we run developer marketing for DevTools and B2B SaaS. We spend cou
 
 ## About
 
-Maintained by **[Infrasity](https://infrasity.com)**- a developer marketing agency helping DevTool startups and B2B SaaS companies with technical content, DevRel strategy, and GTM.
+Maintained by **[Infrasity](https://infrasity.com)**<br>A developer marketing agency helping DevTool startups and B2B SaaS companies with technical content, DevRel strategy, and GTM.
 
 We maintain this list because we research these events for our clients. If you're a DevRel or developer marketing team looking for conference strategy, [let's talk](https://infrasity.com).
 
