@@ -61,7 +61,6 @@ This repo brings all of that into one place. This list is carefully curated to h
 | Event Name | Date | Location | Register |
 |------------|------|----------|----------|
 | DevOpsCon | June 15-19 2026 | Berlin, Germany | [↗](https://devopscon.io/berlin/) |
-| MWCP 2026 | 2026-06-23 to 2026-06-24 | Paris (France) | [↗](https://ampcommunity.online/mwcp-2026) |
 | Open Source in Finance Forum London | 2026-06-25 | London (UK) | [↗](https://events.linuxfoundation.org/open-source-finance-forum-london/) |
 | OWASP Global AppSec EU 2026 - CFP (Vienna, Austria) | 2026-06-25 to 2026-06-26 | Vienna (Austria) | [↗](https://www.owasp.org) |
 | Cloud Native Summit 2026 | 2026-06-29 to 2026-06-30 | Munich (Germany) | [↗](https://cloudnativesummit.de/) |
@@ -137,6 +136,7 @@ This repo brings all of that into one place. This list is carefully curated to h
 | Conf42 AI Agents 2026 | 2026-09-24 | Online | [↗](https://www.conf42.com/agents2026) |
 | Dapr Day Virtual | 2026-10-08 | Online | [↗](https://community2.cncf.io/events/details/cncf-virtual-project-events-hosted-by-cncf-presents-dapr-day/) |
 | Minds Mastering Machines - M3: LLMs im Unternehmen | 2026-10-15 | Online | [↗](https://m3-konferenz.de/llm.php) |
+| KubeVirt Summit Virtual | 2026-10-15 | Online | [↗](https://community2.cncf.io/events/details/cncf-virtual-project-events-hosted-by-cncf-presents-kubevirt-summit-2026/) |
 | Open Source Observability Day | 2026-10-23 | Online | [↗](https://osoday.com) |
 | Conf42 Platform Engineering 2026 | 2026-11-05 | Online | [↗](https://www.conf42.com/platform2026) |
 | AI for Developers | 2026-12-17 to 2026-12-18 | Online | [↗](https://aiconference.dev/) |
