@@ -1,22 +1,26 @@
 <div align="center">
 
-  
-
-  <!-- HEADER -->
   <h1>Developer Events & Conferences Directory</h1>
 
-  <!-- BADGES -->
-  <p>
-   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
-   <img src="https://img.shields.io/badge/updated-daily-brightgreen">
-   <img src="https://img.shields.io/badge/maintained%20by-Infrasity-7B6BFF">
-   <!-- BANNER -->
-  <img src="/assets/Awesome.png">
-    
-    
-    
-  </p>
+  [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
+  [![Updated Daily](https://img.shields.io/github/last-commit/Infrasity-Labs/awersome-developer-conferences?label=last%20updated&color=brightgreen)](https://github.com/Infrasity-Labs/awersome-developer-conferences/commits/master)
+  [![Maintained by Infrasity](https://img.shields.io/badge/maintained%20by-Infrasity-7B6BFF)](https://www.infrasity.com/)
+
+
+  <img src="assets/Awesome.png" width="1000" alt="Awesome Developer Conferences Banner" />
+
 </div>
+
+<br><br>
+**Jump to:**
+- [Africa](#africa) 
+- [Asia](#asia) 
+- [Australia](#australia) 
+- [Europe](#europe) 
+- [North America](#north-america) ·
+- [South America](#south-america) 
+- [Virtual/Online](#virtualonline) 
+
 
 <!-- EXPLANATION / ABOUT -->
 ## Why this exists
@@ -128,7 +132,7 @@ This repo brings all of that into one place. This list is carefully curated to h
 | apidays New York 2027 | May 2027 | New York, NY (USA) | [↗](https://www.apidays.global/events/new-york) |
 | KubeCon + CloudNativeCon North America 2027 | 2027-11-08 to 2027-11-11 | New Orleans, LA (USA) | [↗](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2027/) |
 | DevOpsCon | Sept 28 - Oct 2 | New York, United States | [↗](https://devopscon.io/new-york/) |
-### Online
+### Virtual/Online
 | Event Name | Date | Location | Register |
 |------------|------|----------|----------|
 | Conf42 Observability 2026 | 2026-09-10 | Online | [↗](https://www.conf42.com/obs2026) |
