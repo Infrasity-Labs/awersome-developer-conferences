@@ -81,9 +81,8 @@ def main():
     
     # Add tables
     for cont in sorted(continents_events.keys()):
-        # We can write out the continent header even if empty, or skip empty? Let's write them all to maintain structure,
-        # but the template only wrote non-empty, wait no, let's write them all. Or actually let's skip empty to make it clean,
-        # but wait, existing scripts might expect the header. Let's write the header anyway.
+        if not continents_events[cont]:
+            continue
         new_readme_lines.append(f"### {cont}")
         new_readme_lines.append("| Event Name | Date | Location | Register |")
         new_readme_lines.append("|------------|------|----------|----------|")
