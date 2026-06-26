@@ -109,9 +109,8 @@ def determine_region(location, name='', link=''):
     
     # If location explicitly says online/unknown, we will also scan the name and link to "rescue" it to a physical continent
     is_virtual_loc = False
-    if 'online' in loc or 'virtual' in loc or 'unknown' in loc or not loc:
-        if ' & online' not in loc and ' and virtual' not in loc:
-            is_virtual_loc = True
+    if 'unknown' in loc or not loc:
+        is_virtual_loc = True
             
     search_text = loc if not is_virtual_loc else f"{loc} {name} {link}".lower()
             
@@ -122,7 +121,7 @@ def determine_region(location, name='', link=''):
         return False
 
     # Africa
-    if has_word(['africa', 'nigeria', 'kenya', 'egypt', 'lagos', 'nairobi', 'cairo', 'durban', 'johannesburg', 'tunisia', 'mauritius', 'togo', 'cameroon', 'libya', 'ghana', 'morocco', 'rwanda', 'uganda', 'senegal', 'tunis', 'lomé', 'yaoundé', 'tripoli', 'casablanca', 'ho']):
+    if has_word(['africa', 'nigeria', 'kenya', 'egypt', 'lagos', 'nairobi', 'cairo', 'durban', 'johannesburg', 'tunisia', 'mauritius', 'togo', 'cameroon', 'libya', 'ghana', 'morocco', 'rwanda', 'uganda', 'senegal', 'tunis', 'lomé', 'yaoundé', 'tripoli', 'casablanca']):
         return 'Africa'
         
     # Australia
@@ -150,8 +149,6 @@ def determine_region(location, name='', link=''):
     asia_cities = ['tokyo', 'seoul', 'shanghai', 'beijing', 'mumbai', 'bengaluru', 'bangalore', 'delhi', 'new delhi', 'gurugram', 'noida', 'pune', 'chennai', 'hyderabad', 'hanoi', 'ho chi minh', 'jakarta', 'kuala lumpur', 'bangkok', 'manila', 'taipei', 'dubai', 'doha', 'tel aviv', 'riyadh', 'ahmedabad', 'bennett']
     if has_word(asia_countries + asia_cities):
         return 'Asia'
-        
-    return 'Virtual/Online'
         
     return 'Virtual/Online'
 
