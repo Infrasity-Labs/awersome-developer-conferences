@@ -69,7 +69,6 @@ At Infrasity, we run developer marketing for DevTools and B2B SaaS. We spend cou
 | Event Name | Date | Location | Register |
 |------------|------|----------|----------|
 | DevOpsCon | June 15-19 2026 | Berlin, Germany | [↗](https://devopscon.io/berlin/) |
-| Open Source in Finance Forum London | 2026-06-25 | London (UK) | [↗](https://events.linuxfoundation.org/open-source-finance-forum-london/) |
 | OWASP Global AppSec EU 2026 - CFP (Vienna, Austria) | 2026-06-25 to 2026-06-26 | Vienna (Austria) | [↗](https://www.owasp.org) |
 | Cloud Native Summit 2026 | 2026-06-29 to 2026-06-30 | Munich (Germany) | [↗](https://cloudnativesummit.de/) |
 | Automotive Oopen Source Summit 2026 | 2026-06-30 | Starnberg (Germany) | [↗](https://www.automotive-oss.org/event/2026/summary) |
@@ -104,7 +103,6 @@ At Infrasity, we run developer marketing for DevTools and B2B SaaS. We spend cou
 | Event Name | Date | Location | Register |
 |------------|------|----------|----------|
 | UN Open Source Week | 2026-06-22 to 2026-06-26 | New York, NY (USA) | [↗](https://www.un.org/digital-emerging-technologies/content/open-source-week-2025) |
-| PlatformCon | 2026-06-25 | New York, United States | [↗](https://platformconlive.fr) |
 | AgentCon - Orlando | 2026-06-26 | Orlando, FL (USA) | [↗](https://agentcon.city/orlando) |
 | DevRelCon | July 22-23 2026 | New York, United States | [↗](https://nyc.devrelcon.dev) |
 | Open Source Days | 2026-07-19 | Los Angeles, CA (USA) & Online | [↗](https://events.linuxfoundation.org/open-source-days/) |
