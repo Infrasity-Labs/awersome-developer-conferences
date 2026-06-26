@@ -25,7 +25,7 @@
 
 
 <!-- EXPLANATION / ABOUT -->
-## What is this?
+## The List
 Finding the right tech conference shouldn't require scraping fifty different scattered blogs, sponsor pages, and aggregator sites.
 
 This repository is a carefully curated, daily-updated directory of the world's best developer, cloud-native, and open-source events including KubeCon, PlatformCon, DevOpsCon, and Open Source Summit.
