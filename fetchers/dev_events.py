@@ -186,7 +186,7 @@ def main():
         'Australia': [],
         'Europe': [],
         'North America': [],
-        'Online': [],
+        'Virtual/Online': [],
         'South America': []
     }
 

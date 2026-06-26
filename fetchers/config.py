@@ -155,13 +155,40 @@ def deduplicate_events(events):
     deduped = []
     
     for ev in events:
-        name = ev['name']
+        name = ev.get('name', '')
         name_clean = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', name).lower()
+        # Remove years from name to prevent duplicate editions in the same year from slightly differing names
+        name_clean = re.sub(r'202[0-9]', '', name_clean)
+        # Remove common fluff words that might differ between sources
+        name_clean = re.sub(r'\b(conference|summit|edition|annual)\b', '', name_clean)
         name_clean = re.sub(r'[^a-z0-9]', '', name_clean)
         
         # Use a combination of name, date, and location to avoid deleting different editions of the same conference series
-        date_clean = ev.get('date', '').strip().lower()
-        loc_clean = ev.get('location', '').strip().lower()
+        date_raw = ev.get('date', '').strip().lower()
+        loc_raw = ev.get('location', '').strip().lower()
+        
+        # Optimize date: Extract Year and Month to fuzzy match slight day variations
+        year_match = re.search(r'202[0-9]', date_raw)
+        year = year_match.group(0) if year_match else ''
+        
+        month = ''
+        month_match = re.search(r'-(\d{2})-', date_raw)
+        if month_match:
+            month = month_match.group(1)
+        else:
+            months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+            for i, m in enumerate(months):
+                if m in date_raw:
+                    month = f"{(i % 12) + 1:02d}"
+                    break
+        date_clean = f"{year}-{month}"
+        
+        # Optimize location: Take the first part before comma or parenthesis to fuzzy match 'San Francisco' vs 'San Francisco, CA'
+        loc_clean = re.split(r'[,(]', loc_raw)[0].strip()
+        loc_clean = re.sub(r'[^a-z0-9]', '', loc_clean)
+        if 'online' in loc_clean or 'virtual' in loc_clean:
+            loc_clean = 'online'
+            
         key = (name_clean, date_clean, loc_clean)
         
         if key not in seen:
