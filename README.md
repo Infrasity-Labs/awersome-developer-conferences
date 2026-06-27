@@ -146,7 +146,6 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 |------------|------|----------|----------|
 | Data Terra Nemo | 2019-05-17 to 2919-05-18 | Berlin | [↗](https://dtn.is) |
 | DevOpsCon | June 15-19 2026 | Berlin, Germany | [↗](https://devopscon.io/berlin/) |
-| OWASP Global AppSec EU 2026 - CFP (Vienna, Austria) | 2026-06-25 to 2026-06-26 | Vienna (Austria) | [↗](https://www.owasp.org) |
 | ThreatModCon 2026 Vienna | 2026-06-26 to 2026-06-27 | Vienna (Austria) | [↗](https://www.threatmodcon.com/vienna-2026) |
 | Asynconf | 2026-06-27 | Paris (France) | [↗](https://asynconf.com/) |
 | BSides Maribor 2026 | 2026-06-27 | Maribor (Slovenia) | [↗](https://bsidesmaribor.si/) |
@@ -423,17 +422,19 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 | Event Name | Date | Location | Register |
 |------------|------|----------|----------|
 | Digital Delivery Chicago: A Software Developer Meetup | 2026-01-20 to 2026-07-14 | Chicago, IL | [↗](https://www.meetup.com/js-chi/) |
-| UN Open Source Week | 2026-06-22 to 2026-06-26 | New York, NY (USA) | [↗](https://www.un.org/digital-emerging-technologies/content/open-source-week-2025) |
 | The Perl & Raku Conference in Greenville, SC 2026 | 2026-06-25 to 2026-06-29 | Greenville, SC (USA) | [↗](https://tprc.us/) |
-| AgentCon - Orlando | 2026-06-26 | Orlando, FL (USA) | [↗](https://agentcon.city/orlando) |
 | Hackathon: Humanizing The Prototype | 2026-06-27 | San Francisco, us | [↗](https://www.meetup.com/producttank-sf/events/314860008/) |
+| 🌳🏛️ Hidden Lincoln Park: Mansions, Myths & Architectural Marvels 🏰🕰️ | 2026-06-27 | Chicago, us | [↗](https://www.meetup.com/iwanttodothatchicago/events/315373060/) |
 | AI Engineer World's Fair 2026 | 2026-06-29 to 2026-07-02 | San Francisco, CA (USA) | [↗](https://ai.engineer/wf) |
 | AWS Summit Washington, D.C. Agenda | 2026-06-30 to 2026-07-01 | Washington D.C. (USA) | [↗](https://aws.amazon.com/fr/events/summits/washington-dc/agenda/) |
+| Google Cloud Labs: Data Cloud | 2026-06-30 | Chicago, us | [↗](https://www.meetup.com/google-developers-group-gdg-chicago/events/315025160/) |
 | Agents in Production: correctness, context, and control | 2026-07-01 | San Francisco, US | [↗](https://www.meetup.com/surrealdb-san-francisco/events/315282200/) |
-| DevRelCon | July 22-23 2026 | New York, United States | [↗](https://nyc.devrelcon.dev) |
+| ChicagoRuby @ NinjaHoldings | 2026-07-01 | Chicago, us | [↗](https://www.meetup.com/chicagoruby/events/315151782/) |
 | How to create a Zoo management web app | 2026-07-02 | San Francisco, us | [↗](https://www.meetup.com/live-premium-project/events/315234900/) |
 | Perl Community Conference, Summer 2026 | 2026-07-03 to 2026-07-04 | Austin, TX (USA) | [↗](https://perlcommunity.org) |
 | Creating an Instagram Service in Django | 2026-07-03 | San Francisco, us | [↗](https://www.meetup.com/live-premium-project/events/315238381/) |
+| NERP is not exclusively Raspberry Pi | 2026-07-07 | Chicago, us | [↗](https://www.meetup.com/nerp-not-exclusively-raspberry-pi/events/315291413/) |
+| Terraform in the Real World: Lessons from the Cloud Trenches | 2026-07-09 | Chicago, us | [↗](https://www.meetup.com/the-chicago-cloud-computing-meetup-group/events/312946466/) |
 | Summercon 2026 | 2026-07-10 to 2026-07-11 | New York, NY (USA) | [↗](https://www.summercon.org) |
 | ACM Irving Tech Talk July 2026 (In-Person) | 2026-07-11 | Irving, TX (USA) | [↗](https://irving.acm.org/events/irving-acm-professional-chapter-monthly-tech-talk-july-2026/) |
 | SciPy 2026 | 2026-07-13 to 2026-07-19 | Minneapolis, MN (USA) | [↗](https://www.scipy2026.scipy.org/) |
@@ -469,7 +470,6 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 | swampUP 2026 | 2026-09-01 to 2026-09-03 | New York, NY (USA) | [↗](http://swampup.jfrog.com) |
 | seL4 Summit | 2026-09-01 to 2026-09-03 | Vancouver, BC (Canada) | [↗](https://events.linuxfoundation.org/sel4-summit/) |
 | CloudX 2026 | 2026-09-01 to 2026-09-03 | California (USA) | [↗](https://cloudxconf.com/) |
-| Dreamforce | Sep 15-17 2026 | San Francisco, United States | [↗](https://www.salesforce.com/dreamforce/) |
 | gRPConf North America | 2026-09-03 | Mountain View, CA (USA) | [↗](https://events.linuxfoundation.org/grpconf/) |
 | Vancouver Microsoft 365 Summit | 2026-09-03 | Vancouver, BC (Canada) | [↗](https://vancouver365summit.com/) |
 | Commit Your Code Conference | 2026-09-03 to 2026-09-04 | Dallas, TX (USA) | [↗](https://www.commityourcode.com) |
@@ -539,8 +539,6 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 | GitHub Universe 2026 | 2026-10-28 to 2026-10-29 | San Francisco, CA (USA) | [↗](https://githubuniverse.com/) |
 | Michigan Technology Conference 2026 | 2026-10-28 to 2026-10-30 | Rochester, MI (USA) | [↗](https://www.mitechcon.org/) |
 | JSConf Mexico | 2026-10-29 to 2026-10-30 | Guadalajara (Mexico) | [↗](https://www.jsconf.mx/en) |
-| Microsoft Ignite | Nov 17-20 2026 | San Francisco, United States | [↗](https://ignite.microsoft.com/en-US/home) |
-| AWS re:Invent | Nov 30-Dec 4 2026 | Las Vegas, United States | [↗](https://aws.amazon.com/events/reinvent/) |
 | Open Source Analytics Conference | 2026-11-02 | San Francisco, CA (USA) | [↗](https://osacon.io) |
 | Humanoid Robots Summit North America 2026 | 2026-11-03 to 2026-11-04 | Chicago, IL (USA) | [↗](https://acgrobotus.com/) |
 | Open Source in Finance Forum New York | 2026-11-04 to 2026-11-05 | New York, NY (USA) | [↗](https://events.linuxfoundation.org/open-source-finance-forum-new-york/) |
@@ -577,14 +575,19 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 | ArchConf | 2026-12-07 to 2026-12-10 | Clearwater, FL (USA) | [↗](https://archconf.com) |
 | BSides RDU 2026 | 2026-12-18 | Raleigh, NC (USA) | [↗](https://bsidesrdu.org) |
 | Analytics and Data Summit 2027 | 2027-04-13 to 2027-04-15 | Redwood Shores, CA (USA) | [↗](http://andouc.org) |
+| PyTorch Conference 2027 | 2027-10-06 to 2027-10-07 | San Jose, CA (USA) | [↗](https://events.linuxfoundation.org/pytorch-conference-2027/) |
+| KubeCon + CloudNativeCon North America 2027 | 2027-11-08 to 2027-11-11 | New Orleans, LA (USA) | [↗](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2027/) |
+| DevRelCon | July 22-23 2026 | New York, United States | [↗](https://nyc.devrelcon.dev) |
+| Dreamforce | Sep 15-17 2026 | San Francisco, United States | [↗](https://www.salesforce.com/dreamforce/) |
+| Microsoft Ignite | Nov 17-20 2026 | San Francisco, United States | [↗](https://ignite.microsoft.com/en-US/home) |
+| AWS re:Invent | Nov 30-Dec 4 2026 | Las Vegas, United States | [↗](https://aws.amazon.com/events/reinvent/) |
 | Forrester B2B Summit NA | May 3-5 2027 | Phoenix, United States | [↗](https://www.forrester.com/event/b2b-summit-north-america/) |
 | SaaStr Annual | May 11-12 2027 | California, United States | [↗](https://www.saastrannual2026.com) |
 | Open Source Summit NA | May 17-19 2027 | Vancouver, Canada | [↗](https://events.linuxfoundation.org/open-source-summit-north-america/) |
 | apidays New York 2027 | May 2027 | New York, NY (USA) | [↗](https://www.apidays.global/events/new-york) |
-| PyTorch Conference 2027 | 2027-10-06 to 2027-10-07 | San Jose, CA (USA) | [↗](https://events.linuxfoundation.org/pytorch-conference-2027/) |
-| KubeCon + CloudNativeCon North America 2027 | 2027-11-08 to 2027-11-11 | New Orleans, LA (USA) | [↗](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2027/) |
 | 2026 ICS Cybersecurity Conference \| Nashville | 2026-10-06 to 2026-10-08 | Nashville, TN (USA) | [↗](https://www.icscybersecurityconference.com/) |
 | Open Source Summit North America | TBA | Minneapolis, USA | [↗](https://events.linuxfoundation.org/open-source-summit-north-america) |
+
 ### South America
 | Event Name | Date | Location | Register |
 |------------|------|----------|----------|
@@ -625,15 +628,20 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 | Cover6 Community | 2026-06-17 to 2026-07-01 | Online | [↗](https://www.meetup.com/cover6community) |
 | Dot by Dot: Mandala Art Workshop | 2026-06-27 | Unknown | [↗](https://lu.ma/ii7cv45o) |
 | RTP Salesforce Saturday  | 2026-06-27 | Virtual/Online | [↗](https://www.meetup.com/rtp-salesforce-saturday/events/315145945/) |
+| 🚀 Flutter Chicago Celebrates Disability Pride: Accessibility! | 2026-06-29 | Virtual/Online | [↗](https://www.meetup.com/flutter-chicago/events/315420318/) |
 | Business Development The Magnetic Offer Matrix: Designing Irresistible Services | 2026-06-30 | Virtual/Online | [↗](https://www.meetup.com/kaasaa/events/315251666/) |
 | Why API modernization is the prerequisite to full data path governance | 2026-06-30 | Virtual/Online | [↗](https://www.meetup.com/kong-raleigh/events/315284957/) |
+| Dynamo got you here. What comes next? | 2026-06-30 | Virtual/Online | [↗](https://www.meetup.com/chinamo/events/315406913/) |
 | PHX~CURRENTS | 2026-07-01 | Virtual/Online | [↗](https://www.meetup.com/codephx/events/315218120/) |
 | TechConnect: Global Virtual Job & Networking Event for Data, AI, and Tech Pros | 2026-07-01 | Virtual/Online | [↗](https://www.meetup.com/ac-phx/events/314093859/) |
 | Master Production-Ready AI Agents: Evaluate & Ship With Confidence | 2026-07-01 | Virtual/Online | [↗](https://www.meetup.com/data-science-dojo-phoenix/events/315368856/) |
 | Learning Game Development the Hard Way with Rust and Bevy | 2026-07-02 | Virtual/Online | [↗](https://www.meetup.com/charlottesville-rust-meetup/events/315211402/) |
 | Dev Automation and Harness Engineering I | 2026-07-04 | Virtual/Online | [↗](https://www.meetup.com/advanced-ai-concepts-phoenix/events/315037924/) |
+| Indie Video Game Developer Meetup - NW Burbs Location DISCORD | 2026-07-05 | Virtual/Online | [↗](https://www.meetup.com/indie-game-developers-association/events/315275625/) |
 | AI Coding Summit, London Edition | 2026-07-06 to 2026-07-07 | Online | [↗](https://aicodingsummit.com/) |
 | Health & Energy The Power of Pause: Using Rest as a Strategic Advantage | 2026-07-07 | Virtual/Online | [↗](https://www.meetup.com/kaasaa/events/315253284/) |
+| How can a Context Lake cut down up to 80% of your token usage? | 2026-07-07 | Virtual/Online | [↗](https://www.meetup.com/platform-engineers-chicago/events/315316228/) |
+| Going Meta S03E10 – a Series on Semantics, Knowledge Graphs and All Things AI | 2026-07-07 | Virtual/Online | [↗](https://www.meetup.com/graphdb-midwest/events/315381974/) |
 | Beyond Code Generation: Building a Governed AI Engineering Lifecycle with OpenCode | 2026-07-08 | Unknown | [↗](https://lu.ma/7kfbalcf) |
 | Lineth Technical Deep Dive: Inside the Production-Grade ZK Rollup Stack | 2026-07-08 | Virtual/Online | [↗](https://www.meetup.com/lfdt-phoenix/events/315234101/) |
 | Architecture for Sustaining Open Source in Web 3 | 2026-07-08 | Virtual/Online | [↗](https://www.meetup.com/lfdt-north-carolina/events/314981958/) |
