@@ -20,7 +20,9 @@ jobs:
         # We use lychee to check all links in README.md
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --format json --output lychee_report.json --accept 200,403,429 './README.md'
+          args: --accept 200,403,429 './README.md'
+          format: json
+          output: lychee_report.json
           fail: false
 
       - name: Automatically remove broken events from README
