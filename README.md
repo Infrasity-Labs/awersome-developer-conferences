@@ -1114,7 +1114,6 @@ This is a daily-updated directory of developer, cloud-native, and open-source co
 | Kids preneur | 2026-09-30 | M'Sila, Algeria | [↗](https://gdg.community.dev/events/details/google-gdg-msila-presents-kids-preneur/) |
 | Clojure Conj | 2026-09-30 | Online | [↗](https://2026.clojure-conj.org) |
 | 8.8 Unreal | 2026-10-01 | Teatro de Fundación CorpArtes CA660, Rosario Norte 660, Las Condes, Santiago | [↗](https://8dot8.org) |
-| SREday Warsaw 2026 Q4 | 2026-10-01 | Unknown | [↗](https://sreday.com/2026-warsaw-q4/) |
 | DevOpsDays bogota 2026 | 2026-10-01 | bogota | [↗](https://devopsdays.org/events/2026-bogota) |
 | DevFest Modena 2026 | 2026-10-02 to 2026-10-03 | Modena, Emilia-Romagna | [↗](https://devfest.modena.it) |
 | Ash Conference 2026 | 2026-10-02 | Varberg | [↗](https://www.goatmire.com) |
