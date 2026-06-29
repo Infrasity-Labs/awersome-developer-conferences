@@ -42,10 +42,9 @@ def clean_readme():
                 
                 # 2. Dedupe by Substring Name
                 if not is_dup:
-                    for ex_name in seen_names:
-                        if name_clean in ex_name or ex_name in name_clean:
-                            is_dup = True
-                            break
+                    if name_clean in seen_names:
+                        is_dup = True
+                        break
                             
                 if not is_dup:
                     if url:

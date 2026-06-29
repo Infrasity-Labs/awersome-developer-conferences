@@ -9,7 +9,7 @@ def fetch_events_from_api():
     url = "https://api.joind.in/v2.1/events"
     
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)
         response.raise_for_status()
         data = response.json()
     except Exception as e:
@@ -118,9 +118,9 @@ def main():
                 name_clean = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', event['name']).lower()
                 is_duplicate = False
                 for ex_name in existing_names:
-                    if name_clean in ex_name or ex_name in name_clean:
-                        is_duplicate = True
-                        break
+                 if name_clean in existing_names:
+                    is_duplicate = True
+                    break
                         
                 if not is_duplicate:
                     existing_rows.append(event['line'])
@@ -132,8 +132,9 @@ def main():
                     parts = row.split('|')
                     if len(parts) >= 4:
                         date_str = parts[2].strip().split(' to ')[0].strip()
+                        parsed = config.parse_date(date_str)
                         try:
-                            return datetime.strptime(date_str, "%Y-%m-%d")
+                            return datetime.strptime(parsed, '%Y-%m-%d')
                         except:
                             pass
                     return datetime.max

@@ -12,7 +12,9 @@ def fetch_events():
     try:
         response = scraper.get(url)
         response.raise_for_status()
+        response.encoding = 'utf-8'
         html = response.text
+
     except Exception as e:
         print(f"Failed to fetch data from adatosystems: {e}")
         raise
@@ -136,12 +138,10 @@ def main():
                     
             new_rows_added = 0
             for event in region_events:
-                name_clean = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', event['name']).lower()
-                is_duplicate = False
-                for ex_name in existing_names:
-                    if name_clean in ex_name or ex_name in name_clean:
-                        is_duplicate = True
-                        break
+                if name_clean in existing_names:
+                    is_duplicate = True
+                      
+                    break
                         
                 if not is_duplicate:
                     existing_rows.append(event['line'])
@@ -153,8 +153,9 @@ def main():
                     parts = row.split('|')
                     if len(parts) >= 4:
                         date_str = parts[2].strip().split(' to ')[0].strip()
+                        parsed = config.parse_date(date_str)
                         try:
-                            return datetime.strptime(date_str, "%Y-%m-%d")
+                            return datetime.strptime(parsed, '%Y-%m-%d')
                         except:
                             pass
                     return datetime.max
