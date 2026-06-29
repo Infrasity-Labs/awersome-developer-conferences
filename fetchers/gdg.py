@@ -26,6 +26,8 @@ def fetch_bevy_events(base_api_url):
             print(f"Failed to fetch {url}: {e}")
             break
             
+        if not isinstance(data, dict):
+            break
         results = data.get('results', [])
         if not results:
             break

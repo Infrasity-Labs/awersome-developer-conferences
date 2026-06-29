@@ -36,7 +36,7 @@ def fetch_events_from_api():
         
         text = ev.text.strip().replace('\n', ' ')
         # text is like "Jul 4: Kraków"
-        parts = text.split(':')
+        parts = text.split(':', 1)
         if len(parts) < 2:
             continue
             

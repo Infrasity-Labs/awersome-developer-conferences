@@ -76,6 +76,8 @@ def fetch_events_from_gemini():
                 continue
                 
             for item in ai_events:
+                if not isinstance(item, dict):
+                    continue
                 name = item.get('name', 'N/A').replace('|', '\\|')
                 date_str = item.get('date', '9999-99-99')
                 location = item.get('location', 'Unknown')

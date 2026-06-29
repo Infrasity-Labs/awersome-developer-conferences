@@ -44,6 +44,8 @@ def fetch_lf_events():
             print(f"Failed to fetch {url}: {e}")
             continue
             
+        if not isinstance(data, list):
+            continue
         for item in data:
             name = item.get('title', {}).get('rendered', '')
             name = name.replace('&#038;', '&').replace('&#8211;', '-').replace('&#8217;', "'").replace('&#8220;', '"').replace('&#8221;', '"')

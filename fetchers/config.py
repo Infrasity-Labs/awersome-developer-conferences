@@ -90,7 +90,8 @@ def is_event_relevant(event_text):
         
     # Broad Macro Filters (To prevent fetching cultural/unrelated events)
     macro_keywords = ['tech', 'ai', 'software', 'developer', 'engineering', 'programming', 'startup', 'data', 'cloud', 'cybersecurity', 'hackathon', 'founder', 'machine learning']
-    if not any(kw in event_text for kw in macro_keywords):
+    import re
+    if not any(re.search(rf'\b{re.escape(kw)}\b', event_text) for kw in macro_keywords):
         return False
         
     return True
