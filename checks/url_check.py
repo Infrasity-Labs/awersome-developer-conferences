@@ -51,7 +51,8 @@ def get_newly_added_urls():
                 if url_match:
                     added_urls.add(url_match.group(1).strip())
         return added_urls
-    except Exception:
+    except Exception as e:
+        print(f"Warning: Failed to retrieve git diff ({e}). If running in CI, ensure fetch-depth is at least 2.", file=sys.stderr)
         return set()
 
 def main():
@@ -67,7 +68,10 @@ def main():
     if not args.diff_only and not args.all:
         parser.error("Must specify --diff-only or --all")
         
-    events = parse_readme("README.md")
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    readme_path = os.path.join(script_dir, "..", "README.md")
+    events = parse_readme(readme_path)
     
     urls_to_check = []
     if args.diff_only:
@@ -100,12 +104,12 @@ def main():
             
         if args.fix:
             print(f"Removing {len(lines_to_remove)} rows from README.md...")
-            with open("README.md", "r", encoding="utf-8") as f:
+            with open(readme_path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
                 
             remove_indices = {num - 1 for num in lines_to_remove}
             
-            with open("README.md", "w", encoding="utf-8") as f:
+            with open(readme_path, "w", encoding="utf-8") as f:
                 for i, line in enumerate(lines):
                     if i not in remove_indices:
                         f.write(line)

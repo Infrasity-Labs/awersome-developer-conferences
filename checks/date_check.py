@@ -61,7 +61,10 @@ def main():
     if not args.report and not args.fix:
         parser.error("Must specify --report or --fix")
         
-    events = parse_readme("../README.md" if __name__ != "__main__" else "README.md")
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    readme_path = os.path.join(script_dir, "..", "README.md")
+    events = parse_readme(readme_path)
     issues, lines_to_remove = check_dates(events)
     
     if issues:
@@ -71,13 +74,13 @@ def main():
             
         if args.fix:
             print(f"Removing {len(lines_to_remove)} rows from README.md...")
-            with open("README.md", "r", encoding="utf-8") as f:
+            with open(readme_path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
                 
             # 1-indexed to 0-indexed
             remove_indices = {num - 1 for num in lines_to_remove}
             
-            with open("README.md", "w", encoding="utf-8") as f:
+            with open(readme_path, "w", encoding="utf-8") as f:
                 for i, line in enumerate(lines):
                     if i not in remove_indices:
                         f.write(line)

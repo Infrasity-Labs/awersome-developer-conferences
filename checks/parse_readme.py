@@ -5,7 +5,19 @@ def parse_date(date_str):
     try:
         return datetime.strptime(date_str.strip(), "%Y-%m-%d").date()
     except ValueError:
-        return None
+        pass
+    
+    # Support common human-readable formats like "MMM DD, YYYY" or "MMM DD-DD, YYYY"
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "June", "July", "Sept"]
+    clean_str = date_str.strip()
+    if any(m in clean_str for m in months):
+        year_match = re.search(r'\d{4}', clean_str)
+        year = int(year_match.group(0)) if year_match else date.today().year
+        for i, m in enumerate(months):
+            if m in clean_str:
+                month = (i % 12) + 1
+                return date(year, month, 1)
+    return None
 
 def parse_readme(filepath="README.md"):
     """

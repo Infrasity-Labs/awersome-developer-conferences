@@ -23,7 +23,9 @@ def main():
         "event", "forum", "symposium", "expo", "festival", "workshop", "bootcamp"
     }
     
-    readme_path = "../README.md" if __name__ != "__main__" else "README.md"
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    readme_path = os.path.join(script_dir, "..", "README.md")
     
     with open(readme_path, 'r', encoding='utf-8') as f:
         lines = f.read().split('\n')

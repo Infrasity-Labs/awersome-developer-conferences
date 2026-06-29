@@ -3,7 +3,6 @@ import re
 import urllib.request
 import json
 import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
 from datetime import datetime
 import config
 
@@ -159,5 +158,4 @@ def main():
     print(f"Saved {len(fetched_events)} events to {out_file}")
 
 if __name__ == "__main__":
-    if "main" in locals() or "main" in globals():
-        main()
+    main()

@@ -104,5 +104,4 @@ def main():
     print(f"Saved {len(fetched_events)} events to {out_file}")
 
 if __name__ == "__main__":
-    if "main" in locals() or "main" in globals():
-        main()
+    main()
