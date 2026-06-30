@@ -37,7 +37,10 @@ def query_gemini(api_key, prompt):
             return text
     except Exception as e:
         if hasattr(e, 'read'):
-            print(f"Gemini API error body: {e.read().decode('utf-8')}")
+            try:
+                print(f"Gemini API error body: {e.read().decode('utf-8', errors='replace')}")
+            except Exception:
+                pass
         print(f"Gemini API error: {e}")
         return "[]"
 
