@@ -4,6 +4,8 @@ import urllib.request
 import ssl
 from datetime import datetime
 import config
+import time
+import urllib.error
 
 def query_gemini(api_key, prompt):
     # Strip any hidden characters like newlines from the API key
